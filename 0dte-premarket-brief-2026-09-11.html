@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SPX 0DTE Pre-Market Report — September 11, 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+<style>
+:root{
+  --bg:#0c1018;--s1:#131a24;--s2:#19222f;--bd:#2a3444;
+  --tx:#e4e8ef;--tm:#8893a4;--th:#ffffff;
+  --grn:#22c55e;--grn-d:rgba(34,197,94,.12);
+  --red:#ef4444;--red-d:rgba(239,68,68,.12);
+  --yel:#eab308;--yel-d:rgba(234,179,8,.12);
+  --blu:#3b82f6;--blu-d:rgba(59,130,246,.12);
+  --pur:#a78bfa;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--tx);line-height:1.55;padding:0 12px 80px}
+.wrap{max-width:900px;margin:0 auto}
+.mono{font-family:'JetBrains Mono',monospace}
+
+/* Header */
+.hdr{padding:28px 0 18px;border-bottom:1px solid var(--bd);margin-bottom:24px}
+.hdr-tag{font-size:11px;color:var(--yel);letter-spacing:.04em;font-family:'JetBrains Mono',monospace}
+.hdr h1{font-size:24px;font-weight:700;margin:4px 0 2px}
+.hdr .sub{font-size:13px;color:var(--tm);font-family:'JetBrains Mono',monospace}
+.badge{display:inline-block;font-size:10px;padding:2px 8px;border-radius:10px;font-weight:600;margin-top:8px}
+.badge-live{background:var(--red-d);color:var(--red)}
+
+/* Section */
+.sec{margin-bottom:28px}
+.sec-num{font-size:11px;color:var(--pur);font-family:'JetBrains Mono',monospace;margin-bottom:4px}
+.sec-title{font-size:15px;font-weight:600;color:var(--blu);margin-bottom:12px;padding-bottom:6px;border-bottom:1px solid var(--bd)}
+
+/* Cards */
+.card{background:var(--s1);border:1px solid var(--bd);border-radius:8px;padding:14px 16px;margin-bottom:12px}
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.g3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px}
+@media(max-width:600px){.g2,.g3{grid-template-columns:1fr}}
+
+/* Tables */
+table{width:100%;border-collapse:collapse;font-size:12px}
+thead th{text-align:left;font-size:10px;color:var(--tm);font-family:'JetBrains Mono',monospace;padding:7px 8px;border-bottom:1px solid var(--bd);font-weight:500}
+tbody td{padding:7px 8px;border-bottom:1px solid var(--bd);font-family:'JetBrains Mono',monospace;font-size:12px}
+tbody tr:hover{background:var(--s2)}
+
+/* Tags */
+.tag{display:inline-block;font-size:10px;padding:1px 7px;border-radius:3px;font-weight:600;font-family:'JetBrains Mono',monospace}
+.t-bull{background:var(--grn-d);color:var(--grn)}
+.t-bear{background:var(--red-d);color:var(--red)}
+.t-neut{background:var(--yel-d);color:var(--yel)}
+.t-hi{background:var(--red-d);color:var(--red)}
+.t-med{background:var(--yel-d);color:var(--yel)}
+.t-lo{background:var(--blu-d);color:var(--blu)}
+
+/* Gauge */
+.gauge-wrap{position:relative;height:36px;background:var(--s2);border-radius:6px;overflow:hidden;margin:8px 0}
+.gauge-zone{position:absolute;top:0;height:100%;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:600;font-family:'JetBrains Mono',monospace}
+.gauge-needle{position:absolute;top:0;height:100%;width:3px;background:var(--th);border-radius:2px;z-index:10}
+
+/* Bias box */
+.bias-box{background:var(--s1);border:1px solid var(--bd);border-radius:8px;padding:18px 20px;text-align:center;margin-bottom:12px}
+.bias-dir{font-size:28px;font-weight:700}
+.bias-conf{font-size:14px;color:var(--tm);margin-top:4px}
+
+/* Chart containers */
+.chart-wrap{position:relative;height:220px;margin:8px 0}
+.pie-wrap{position:relative;height:200px}
+
+/* Prose */
+.note{font-size:11px;color:var(--tm);line-height:1.5;margin-top:6px}
+
+/* Footer */
+.footer{margin-top:32px;padding-top:16px;border-top:1px solid var(--bd);font-size:10px;color:var(--tm);line-height:1.5}
+
+/* Level highlight */
+.lvl-grn{color:var(--grn)}
+.lvl-red{color:var(--red)}
+.lvl-yel{color:var(--yel)}
+.lvl-pur{color:var(--pur)}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<!-- ========== HEADER ========== -->
+<div class="hdr">
+  <h1>Pre-Market Session Report</h1>
+  <div class="sub">Friday, September 11, 2026 · Session opens 9:30 PM SGT / 9:30 AM ET</div>
+  <span class="badge badge-live">PRE-MARKET · DATA AS OF 9:00 AM ET</span>
+</div>
+
+<!-- ========== NET DIRECTIONAL BIAS ========== -->
+<div class="sec">
+  <div class="sec-title">Net Directional Bias</div>
+  <div class="bias-box" style="text-align:left;display:flex;align-items:baseline;gap:10px;flex-wrap:wrap">
+    <span class="bias-dir" style="color:var(--red);font-size:18px">BEARISH</span>
+    <span class="bias-conf" style="margin:0">Confidence: <span class="mono" style="color:var(--th);font-weight:700">60%</span></span>
+    <span style="font-size:13px;color:var(--tm)">— in-line CPI (+0.4% m/m / +3.4% y/y) sparked a premarket relief bounce (ES +0.82%, VIX –7% off its overnight spike), but a cusp-of-5% 10Y yield, Fed hike odds surging to ~71% into next week's FOMC, and intensifying Gulf oil-supply risk from the Iran war keep the dominant macro impulse bearish, so expect the bounce to fade back toward the 7,600 put wall / ~7,646 zero-gamma flip once the CPI relief trade runs its course.</span>
+  </div>
+</div>
+
+<!-- ========== DIRECTIONAL INFLUENCE PIE CHARTS ========== -->
+<div class="sec">
+  <div class="sec-title">Directional Influence Breakdown</div>
+  <div class="g2">
+    <div class="card">
+      <div style="text-align:center;font-size:12px;font-weight:600;color:var(--grn);margin-bottom:6px">Bullish / Positive Factors</div>
+      <div class="pie-wrap"><canvas id="pieBull"></canvas></div>
+    </div>
+    <div class="card">
+      <div style="text-align:center;font-size:12px;font-weight:600;color:var(--red);margin-bottom:6px">Bearish / Negative Factors</div>
+      <div class="pie-wrap"><canvas id="pieBear"></canvas></div>
+    </div>
+  </div>
+
+  <!-- Factor table -->
+  <div class="card" style="margin-top:4px">
+    <table>
+      <thead><tr><th>Factor</th><th>Weight</th><th>Dir</th><th>Reasoning</th></tr></thead>
+      <tbody>
+        <tr><td>10Y yield ~4.96%</td><td class="mono">20%</td><td><span class="tag t-bear">BEAR</span></td><td>Cusp of 5%, highest since 2007; discount-rate headwind for equity multiples</td></tr>
+        <tr><td>Fed hike odds ~71%</td><td class="mono">17%</td><td><span class="tag t-bear">BEAR</span></td><td>Up from a 50-50 toss-up a week ago; hawkish repricing into Sep 16 FOMC</td></tr>
+        <tr><td>Gulf oil-supply risk (Iran war)</td><td class="mono">14%</td><td><span class="tag t-bear">BEAR</span></td><td>Houthi strikes on Saudi facilities; Gulf exports down to ~16mbd from ~23mbd pre-war</td></tr>
+        <tr><td>Core CPI y/y 2.4%</td><td class="mono">8%</td><td><span class="tag t-bear">BEAR</span></td><td>Still well above the Fed's 2% target; core m/m ran hot at +0.3% vs +0.2% est.</td></tr>
+        <tr><td>4-day losing streak</td><td class="mono">6%</td><td><span class="tag t-bear">BEAR</span></td><td>Momentum damaged heading into today; trend sellers still active on any bounce</td></tr>
+        <tr><td>CPI in-line, not hot</td><td class="mono">15%</td><td><span class="tag t-bull">BULL</span></td><td>Headline matched consensus exactly; removed the acute hot-print tail risk</td></tr>
+        <tr><td>ES/NQ/Dow futures +0.8-1.0%</td><td class="mono">8%</td><td><span class="tag t-bull">BULL</span></td><td>Broad premarket relief bounce off four straight down days</td></tr>
+        <tr><td>VIX –7% off overnight spike</td><td class="mono">5%</td><td><span class="tag t-bull">BULL</span></td><td>Vol crushed from ~18.82 pre-CPI back to 16.57; fear unwind supports risk-on flow</td></tr>
+        <tr><td>Oracle (ORCL) earnings beat</td><td class="mono">3%</td><td><span class="tag t-bull">BULL</span></td><td>Strong cloud growth after Thu close lifts NQ sentiment into the open</td></tr>
+        <tr><td>Oil pares back off highs</td><td class="mono">3%</td><td><span class="tag t-bull">BULL</span></td><td>Brent -1.4% / WTI -2.9% off overnight highs eases input-cost inflation fear</td></tr>
+        <tr><td>UMich Sentiment (10am ET)</td><td class="mono">1%</td><td><span class="tag t-neut">NEUT</span></td><td>Prelim Sept print + inflation expectations still to come; outcome unknown</td></tr>
+      </tbody>
+    </table>
+    <div class="note">Net influence: Bearish 65% vs Bullish 34% vs Neutral 1%</div>
+  </div>
+</div>
+
+<!-- ========== SPX & VIX FORWARD TABLE ========== -->
+<div class="sec">
+  <div class="sec-title">SPX & VIX — Today vs Next 5 Sessions (Expected Ranges)</div>
+  <div class="card" style="overflow-x:auto">
+    <table>
+      <thead>
+        <tr>
+          <th>Session</th>
+          <th>Date</th>
+          <th>Key Catalyst</th>
+          <th>SPX Low</th>
+          <th>SPX Mid</th>
+          <th>SPX High</th>
+          <th>Exp Move</th>
+          <th>VIX Est</th>
+          <th>Bias</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr style="background:rgba(59,130,246,.06)">
+          <td style="font-weight:600;color:var(--th)">Today</td>
+          <td class="mono">Fri 9/11</td>
+          <td>CPI (released, in-line) · UMich Sentiment · Kroger</td>
+          <td class="mono lvl-red">7,600</td>
+          <td class="mono lvl-pur">7,652</td>
+          <td class="mono lvl-grn">7,702</td>
+          <td class="mono">±50 pts</td>
+          <td class="mono">15.5–17.5</td>
+          <td><span class="tag t-bull">BULL</span></td>
+        </tr>
+        <tr>
+          <td style="font-weight:600">Day 2</td>
+          <td class="mono">Mon 9/14</td>
+          <td>Pre-FOMC positioning (blackout continues)</td>
+          <td class="mono lvl-red">7,590</td>
+          <td class="mono lvl-pur">7,640</td>
+          <td class="mono lvl-grn">7,690</td>
+          <td class="mono">±50 pts</td>
+          <td class="mono">16.0–18.0</td>
+          <td><span class="tag t-neut">NEUT</span></td>
+        </tr>
+        <tr>
+          <td style="font-weight:600">Day 3</td>
+          <td class="mono">Tue 9/15</td>
+          <td>FOMC Day 1 (meeting begins, no decision)</td>
+          <td class="mono lvl-red">7,575</td>
+          <td class="mono lvl-pur">7,630</td>
+          <td class="mono lvl-grn">7,685</td>
+          <td class="mono">±55 pts</td>
+          <td class="mono">16.5–19.0</td>
+          <td><span class="tag t-neut">NEUT</span></td>
+        </tr>
+        <tr style="background:rgba(239,68,68,.06)">
+          <td style="font-weight:600">Day 4</td>
+          <td class="mono">Wed 9/16</td>
+          <td style="font-weight:600;color:var(--red)">Retail Sales · FOMC decision 2pm · Powell 2:30pm · VIX exp</td>
+          <td class="mono lvl-red">7,540</td>
+          <td class="mono lvl-pur">7,620</td>
+          <td class="mono lvl-grn">7,700</td>
+          <td class="mono">±80 pts</td>
+          <td class="mono">18.0–23.0</td>
+          <td><span class="tag t-bear">BEAR</span></td>
+        </tr>
+        <tr>
+          <td style="font-weight:600">Day 5</td>
+          <td class="mono">Thu 9/17</td>
+          <td>Jobless claims · Philly Fed · FOMC digest, blackout ends</td>
+          <td class="mono lvl-red">7,545</td>
+          <td class="mono lvl-pur">7,610</td>
+          <td class="mono lvl-grn">7,675</td>
+          <td class="mono">±65 pts</td>
+          <td class="mono">17.0–20.0</td>
+          <td><span class="tag t-neut">NEUT</span></td>
+        </tr>
+        <tr style="background:rgba(234,179,8,.05)">
+          <td style="font-weight:600">Day 6</td>
+          <td class="mono">Fri 9/18</td>
+          <td style="font-weight:600;color:var(--yel)">Quarterly triple-witching OpEx</td>
+          <td class="mono lvl-red">7,555</td>
+          <td class="mono lvl-pur">7,625</td>
+          <td class="mono lvl-grn">7,695</td>
+          <td class="mono">±70 pts</td>
+          <td class="mono">16.5–19.5</td>
+          <td><span class="tag t-neut">NEUT</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="note">Today's row is centered on the futures-implied open (~7,652) rather than Thursday's 7,591.70 close, since ES has already gapped +0.82% on the in-line CPI print. Ranges derived from VIX-implied daily move, event calendar weight, and the CBOE 0–7DTE gamma profile below. Wednesday's FOMC decision carries the widest expected range of the week at ±80 pts. These are conditional scenarios, not predictions.</div>
+</div>
+
+<!-- ========== VIX GAUGE ========== -->
+<div class="sec">
+  <div class="sec-title">VIX Volatility Regime Gauge</div>
+  <div class="card">
+    <div style="display:flex;justify-content:space-between;font-size:10px;color:var(--tm);font-family:'JetBrains Mono',monospace;margin-bottom:4px">
+      <span>10</span><span>15</span><span>20</span><span>25</span><span>30</span><span>35+</span>
+    </div>
+    <div class="gauge-wrap">
+      <div class="gauge-zone" style="left:0;width:20%;background:rgba(34,197,94,.2);color:var(--grn)">Low</div>
+      <div class="gauge-zone" style="left:20%;width:25%;background:rgba(59,130,246,.15);color:var(--blu)">Normal</div>
+      <div class="gauge-zone" style="left:45%;width:20%;background:rgba(234,179,8,.15);color:var(--yel)">Elevated</div>
+      <div class="gauge-zone" style="left:65%;width:20%;background:rgba(239,68,68,.15);color:var(--red)">High</div>
+      <div class="gauge-zone" style="left:85%;width:15%;background:rgba(239,68,68,.3);color:var(--red)">Extreme</div>
+      <!-- VIX at 16.57 → position: (16.57-10)/(35-10) = 26.28% -->
+      <div class="gauge-needle" style="left:26.28%"></div>
+    </div>
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-top:8px">
+      <div>
+        <span style="font-size:11px;color:var(--tm)">VIX spot:</span>
+        <span class="mono" style="font-size:16px;font-weight:700;color:var(--yel)"> 16.57</span>
+      </div>
+      <div style="font-size:11px;color:var(--tm)">
+        Sep futures: <span class="mono" style="color:var(--tx)">16.63</span> ·
+        Oct futures: <span class="mono" style="color:var(--tx)">18.40</span>
+      </div>
+    </div>
+    <div class="note" style="margin-top:6px">Day range so far: ~18.82 (pre-CPI, 28-session high on oil/inflation fear) down to 16.57 (-7.11%, post in-line CPI). Term structure back in contango (Sep 16.63 / Oct 18.40) after the overnight spike — the in-line print triggered a swift vol crush, but the curve still prices meaningfully more risk into FOMC week.</div>
+  </div>
+</div>
+
+<!-- ========== KEY SPX LEVELS TABLE ========== -->
+<div class="sec">
+  <div class="sec-title">Key SPX Levels & Projected Reactions</div>
+  <div class="card" style="overflow-x:auto">
+    <table>
+      <thead><tr><th>Level</th><th>Price</th><th>Type</th><th>Today's Projected Reaction</th></tr></thead>
+      <tbody>
+        <tr style="background:rgba(34,197,94,.06)">
+          <td class="lvl-grn" style="font-weight:600">Call wall / Gamma wall</td>
+          <td class="mono">7,700</td>
+          <td>Resistance</td>
+          <td>Heaviest near-dated call gamma (~$12bn, CBOE 0–7DTE); primary upside cap / 0DTE pin risk</td>
+        </tr>
+        <tr>
+          <td class="lvl-grn" style="font-weight:600">PDH — Prior day high</td>
+          <td class="mono">7,612.86</td>
+          <td>Now below spot</td>
+          <td>Reclaimed premarket on the CPI gap; first support if the relief bounce gives anything back</td>
+        </tr>
+        <tr style="background:rgba(167,139,250,.06)">
+          <td class="lvl-pur" style="font-weight:600">Round number</td>
+          <td class="mono">7,650</td>
+          <td>Pivot</td>
+          <td>Half-century level sitting almost exactly on the zero-gamma flip; holding above keeps dealers in positive-gamma / low-vol mode</td>
+        </tr>
+        <tr style="background:rgba(59,130,246,.08)">
+          <td class="lvl-pur" style="font-weight:600">PDC — Prior close</td>
+          <td class="mono">7,591.70</td>
+          <td>Pivot</td>
+          <td>Reference pivot for the day; a fade back to here would erase the entire CPI relief bounce</td>
+        </tr>
+        <tr style="background:rgba(167,139,250,.04)">
+          <td class="lvl-pur" style="font-weight:600">Overnight range (ES)</td>
+          <td class="mono">7,598–7,660</td>
+          <td>Pivot</td>
+          <td>Range carved between the pre-CPI low and the post-CPI relief high; a decisive break of either end sets the session's tone</td>
+        </tr>
+        <tr>
+          <td class="lvl-red" style="font-weight:600">PDL — Prior day low</td>
+          <td class="mono">7,580.06</td>
+          <td>Support</td>
+          <td>Deeper support; only comes into play on a full unwind of today's gap</td>
+        </tr>
+        <tr style="background:rgba(59,130,246,.06)">
+          <td class="lvl-pur" style="font-weight:600">Zero-gamma / flip</td>
+          <td class="mono">~7,646</td>
+          <td>Pivot</td>
+          <td>Dealer gamma flips positive above this line (CBOE 0–7DTE simulation); losing it re-opens the negative-gamma regime that amplified Thursday's selloff</td>
+        </tr>
+        <tr style="background:rgba(239,68,68,.06)">
+          <td class="lvl-red" style="font-weight:600">Put wall</td>
+          <td class="mono">7,600</td>
+          <td>Support</td>
+          <td>Heaviest near-dated put gamma (~$11.4bn); high-probability magnet/support on any pullback</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="note">PDH 7,612.86 · PDL 7,580.06 · PDO 7,594.74 · PDC 7,591.70 (Thu 9/10, Yahoo Finance historical data). Gamma levels computed directly from the CBOE SPX options chain (cdn.cboe.com, delayed quotes, snapshot ~8:58 AM ET) — net dealer gamma 0–7DTE at Thursday's close is –$6.9bn per 1% move (negative/short-gamma regime); zero-gamma flip found by re-pricing the chain across a spot grid.</div>
+  </div>
+</div>
+
+<!-- ========== TODAY'S EVENTS TIMELINE ========== -->
+<div class="sec">
+  <div class="sec-title">Today's Events Timeline (ET / SGT)</div>
+  <div class="card" style="overflow-x:auto">
+    <table>
+      <thead><tr><th>Time ET</th><th>Time SGT</th><th>Event</th><th>Direction</th><th>Impact</th><th>Note</th></tr></thead>
+      <tbody>
+        <tr style="background:rgba(34,197,94,.06)">
+          <td class="mono">8:30 AM</td><td class="mono">8:30 PM</td>
+          <td style="font-weight:600">CPI (Aug) m/m & y/y — released</td>
+          <td><span class="tag t-bull">BULL</span></td>
+          <td><span class="tag t-hi">HIGH</span></td>
+          <td>+0.4% m/m / +3.4% y/y, exactly in line — removed hot-print tail risk, sparked the premarket bounce</td>
+        </tr>
+        <tr>
+          <td class="mono">8:30 AM</td><td class="mono">8:30 PM</td>
+          <td>Core CPI (Aug) — released</td>
+          <td><span class="tag t-bear">BEAR</span></td>
+          <td><span class="tag t-med">MED</span></td>
+          <td>+0.3% m/m (vs +0.2% est.) / +2.4% y/y — mild upside miss on the core m/m print tempers the relief</td>
+        </tr>
+        <tr>
+          <td class="mono">8:30 AM</td><td class="mono">8:30 PM</td>
+          <td>Real earnings (Aug)</td>
+          <td><span class="tag t-neut">NEUT</span></td>
+          <td><span class="tag t-lo">LOW</span></td>
+          <td>Secondary BLS release alongside CPI; rarely market-moving on its own</td>
+        </tr>
+        <tr>
+          <td class="mono">Pre-mkt</td><td class="mono">—</td>
+          <td>Kroger (KR) Q2 earnings</td>
+          <td><span class="tag t-neut">NEUT</span></td>
+          <td><span class="tag t-lo">LOW</span></td>
+          <td>Consumer-spending read-through; limited SPX-wide impact</td>
+        </tr>
+        <tr>
+          <td class="mono">9:30 AM</td><td class="mono">9:30 PM</td>
+          <td style="font-weight:600">US cash open</td>
+          <td><span class="tag t-neut">—</span></td>
+          <td><span class="tag t-hi">HIGH</span></td>
+          <td>Opens on the CPI relief gap; first 10–15 min tests whether the bounce holds above the 7,646 zero-gamma flip</td>
+        </tr>
+        <tr>
+          <td class="mono">10:00 AM</td><td class="mono">10:00 PM</td>
+          <td>UMich Consumer Sentiment (prelim, Sept)</td>
+          <td><span class="tag t-neut">NEUT</span></td>
+          <td><span class="tag t-med">MED</span></td>
+          <td>Watch 1-yr and 5-10yr inflation expectations component for FOMC-week read-through</td>
+        </tr>
+        <tr>
+          <td class="mono">2:00 PM</td><td class="mono">2:00 AM+1</td>
+          <td>0DTE gamma danger zone</td>
+          <td><span class="tag t-neut">—</span></td>
+          <td><span class="tag t-hi">HIGH</span></td>
+          <td>Close all 0DTE by here. Gamma extreme in final 2 hrs, more so this close to the flip level</td>
+        </tr>
+        <tr>
+          <td class="mono">4:00 PM</td><td class="mono">4:00 AM+1</td>
+          <td>Cash close / 0DTE expiry</td>
+          <td><span class="tag t-neut">—</span></td>
+          <td><span class="tag t-hi">HIGH</span></td>
+          <td>SPXW settlement (weekly Friday expiry). Be flat before this</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="note">Oracle (ORCL) earnings/cloud-growth beat and the ongoing Iran-war Gulf oil-supply disruption (Houthi strikes on Saudi facilities) are live sentiment drivers today but carry no specific clock time inside the session — see the influence breakdown above. No Fed speakers today: the FOMC communications blackout runs Sep 5–17.</div>
+</div>
+
+<!-- ========== WEEKLY EVENTS TABLE ========== -->
+<div class="sec">
+  <div class="sec-title">Remaining Weekly Events (Through Next FOMC-Relevant Date)</div>
+  <div class="card" style="overflow-x:auto">
+    <table>
+      <thead><tr><th>Date</th><th>Time ET</th><th>Event</th><th>Direction</th><th>Impact</th></tr></thead>
+      <tbody>
+        <tr>
+          <td class="mono">Tue 9/15</td><td class="mono">—</td>
+          <td>FOMC meeting Day 1 (no decision)</td>
+          <td><span class="tag t-neut">NEUT</span></td>
+          <td><span class="tag t-lo">LOW</span></td>
+        </tr>
+        <tr style="background:rgba(239,68,68,.06)">
+          <td class="mono">Wed 9/16</td><td class="mono">8:30 AM</td>
+          <td style="font-weight:600">Retail Sales (Aug)</td>
+          <td><span class="tag t-neut">BEAR LEAN/NEUT</span></td>
+          <td><span class="tag t-hi">HIGH</span></td>
+        </tr>
+        <tr style="background:rgba(239,68,68,.08)">
+          <td class="mono">Wed 9/16</td><td class="mono">2:00 PM</td>
+          <td style="font-weight:600">FOMC rate decision</td>
+          <td><span class="tag t-neut">BEAR LEAN/NEUT</span></td>
+          <td><span class="tag t-hi">HIGH</span></td>
+        </tr>
+        <tr>
+          <td class="mono">Wed 9/16</td><td class="mono">2:30 PM</td>
+          <td>Powell press conference</td>
+          <td><span class="tag t-neut">NEUT</span></td>
+          <td><span class="tag t-hi">HIGH</span></td>
+        </tr>
+        <tr>
+          <td class="mono">Wed 9/16</td><td class="mono">—</td>
+          <td>VIX monthly expiration (coincides with FOMC)</td>
+          <td><span class="tag t-neut">NEUT</span></td>
+          <td><span class="tag t-med">MED</span></td>
+        </tr>
+        <tr>
+          <td class="mono">Thu 9/17</td><td class="mono">8:30 AM</td>
+          <td>Initial jobless claims · Philly Fed Mfg (blackout ends)</td>
+          <td><span class="tag t-neut">NEUT</span></td>
+          <td><span class="tag t-med">MED</span></td>
+        </tr>
+        <tr style="background:rgba(234,179,8,.06)">
+          <td class="mono">Fri 9/18</td><td class="mono">—</td>
+          <td style="font-weight:600">Quarterly OpEx (triple witching)</td>
+          <td><span class="tag t-neut">NEUT</span></td>
+          <td><span class="tag t-hi">HIGH</span></td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="note">Direction on Retail Sales and the FOMC decision is marked BEAR LEAN/NEUT rather than guessed outright — markets are pricing ~71% odds of a 25bp hike, but the actual outcome and Powell's guidance are not yet known. This is the most consequential week of the quarter for SPX: CPI (today) → FOMC → VIX expiration → quarterly triple witching, all inside eight sessions.</div>
+  </div>
+</div>
+
+<!-- DISCLAIMER -->
+<div class="card" style="border-left:3px solid var(--yel)">
+  <div style="font-size:11px;color:var(--tm);line-height:1.6">
+    <strong style="color:var(--yel)">Disclaimer:</strong> Informational market commentary only — not investment advice. Naked options carry unlimited risk (naked calls) or substantial risk (naked puts). 0DTE options can lose 100% of premium in minutes. All levels, scenarios, and directional biases are conditional estimates that can be invalidated by incoming data. Past performance is not indicative of future results. Always define risk before entry.
+  </div>
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+  Generated Sep 11, 2026, 9:05 AM ET · Pre-market edition · SPX PDC 7,591.70 · ES premkt 7,660.50 (+0.82%) · VIX 16.57 · 10Y ~4.96% · WTI $99.51 · Brent ~$106<br>
+  Sources: Yahoo Finance, CNBC, Bloomberg, TheStreet, Vantage Markets, FXStreet, Trading Economics, CBOE delayed options chain (cdn.cboe.com — GEX computed directly), Federal Reserve / NY Fed economic calendar, Critical Threats / Wikipedia (Iran-war oil context)
+</div>
+
+</div><!-- /wrap -->
+
+<!-- ========== CHARTS ========== -->
+<script>
+Chart.defaults.color='#8893a4';
+Chart.defaults.borderColor='rgba(42,52,68,.5)';
+Chart.defaults.font.family="'Inter',sans-serif";
+Chart.defaults.font.size=11;
+
+// Bullish Pie
+new Chart(document.getElementById('pieBull'),{
+  type:'doughnut',
+  data:{
+    labels:['CPI in-line, not hot','ES/NQ/Dow futures +0.8-1.0%','VIX -7% off overnight spike','Oracle earnings beat','Oil pares back off highs'],
+    datasets:[{
+      data:[15,8,5,3,3],
+      backgroundColor:['#22c55e','#16a34a','#15803d','#166534','#14532d'],
+      borderColor:'#131a24',borderWidth:2
+    }]
+  },
+  options:{
+    responsive:true,maintainAspectRatio:false,
+    plugins:{
+      legend:{display:true,position:'bottom',labels:{boxWidth:10,padding:6,font:{size:10}}},
+      title:{display:true,text:'34% total bullish weight',color:'#22c55e',font:{size:11,weight:'600'}}
+    }
+  }
+});
+
+// Bearish Pie
+new Chart(document.getElementById('pieBear'),{
+  type:'doughnut',
+  data:{
+    labels:['10Y yield ~4.96% (cusp of 5%)','Fed hike odds ~71%','Gulf oil-supply risk (Iran war)','Core CPI y/y 2.4%','4-day losing streak'],
+    datasets:[{
+      data:[20,17,14,8,6],
+      backgroundColor:['#ef4444','#dc2626','#b91c1c','#991b1b','#7f1d1d'],
+      borderColor:'#131a24',borderWidth:2
+    }]
+  },
+  options:{
+    responsive:true,maintainAspectRatio:false,
+    plugins:{
+      legend:{display:true,position:'bottom',labels:{boxWidth:10,padding:6,font:{size:10}}},
+      title:{display:true,text:'65% total bearish weight',color:'#ef4444',font:{size:11,weight:'600'}}
+    }
+  }
+});
+
+
+</script>
+
+</body>
+</html>
